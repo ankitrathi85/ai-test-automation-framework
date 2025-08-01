@@ -24,8 +24,8 @@ A modern, production-ready test automation framework using [Stagehand](https://g
 ### Installation
 1. **Clone and install dependencies:**
    ```bash
-   git clone <your-repo-url>
-   cd llmFramework
+   git clone https://github.com/ankitrathi85/ai-test-automation-framework.git
+   cd ai-test-automation-framework
    npm install
    ```
 
