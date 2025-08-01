@@ -1,0 +1,57 @@
+{
+  "name": "test-automation-framework",
+  "version": "1.0.0",
+  "description": "Production-ready test automation framework using Stagehand (FREE, open-source) and Groq (FREE tier) for AI browser automation.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "validate-env": "node validate-env.js",
+    "test": "npm run clean && ./node_modules/.bin/cucumber-js --config=cucumber.cjs && npm run report",
+    "test:elements": "npm run clean && ./node_modules/.bin/cucumber-js --config=cucumber.cjs features/elements.feature && npm run report",
+    "test:forms": "npm run clean && ./node_modules/.bin/cucumber-js --config=cucumber.cjs features/forms.feature && npm run report",
+    "test:headless": "npm run clean && BROWSER=headless ./node_modules/.bin/cucumber-js --config=cucumber.cjs",
+    "test:debug": "npm run clean && DEBUG=true ./node_modules/.bin/cucumber-js --config=cucumber.cjs",
+    "clean": "node cleanup.js all",
+    "clean:reports": "node cleanup.js reports",
+    "clean:screenshots": "node cleanup.js screenshots",
+    "clean:old": "node cleanup.js old",
+    "setup": "mkdir -p reports screenshots",
+    "report": "node utils/test-helpers.js report",
+    "report:backup": "node backup-report.js"
+  },
+  "keywords": [
+    "test automation",
+    "stagehand",
+    "ai",
+    "cucumber",
+    "typescript",
+    "groq",
+    "free",
+    "browserbase"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@aws-sdk/client-bedrock-runtime": "latest",
+    "@azure/openai": "latest",
+    "@browserbasehq/stagehand": "^2.4.1",
+    "@cucumber/cucumber-expressions": "latest",
+    "@cucumber/gherkin": "latest",
+    "@google/generative-ai": "latest",
+    "dotenv": "^16.6.1",
+    "groq-sdk": "latest",
+    "openai": "latest"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.1.0",
+    "@types/node": "^24.1.0",
+    "eslint": "latest",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
